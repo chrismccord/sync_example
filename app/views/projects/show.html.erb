@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+
+<%= sync partial: 'project_header', resource: @project %>
+
+<%= link_to 'Project Settings', edit_project_path(@project) %>
+
+<table class="table" data-name="todos-list">
+  <tbody>
+    <% @project.todos.ordered.each do |todo| %>
+      <%= sync partial: 'todo_list_row', resource: todo %>
+    <% end %>
+    <%= sync_new partial: 'todo_list_row', resource: Todo.new, scope: @project %>
+  </tbody>
+</table>
+
+<br />
+
+<%= render partial: 'todos/form', locals: {todo: @project.todos.build } %>
+

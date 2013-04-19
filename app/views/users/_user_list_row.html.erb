@@ -1,0 +1,13 @@
+<tr>
+  <td class="name">
+    <%= link_to user do %>
+      <%= user.name %>
+    <% end %>
+  </td>
+  <td>
+    <%= link_to 'Edit', edit_user_path(user) %>
+  </td>
+  <td>
+    <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </td>
+</tr>

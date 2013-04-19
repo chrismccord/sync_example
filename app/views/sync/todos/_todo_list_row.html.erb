@@ -1,0 +1,41 @@
+<tr data-name="todo-row" class="todo-row">
+  <td class="title">
+    <div class="static">
+      <%= link_to [todo.project, todo] do %>
+        <% if todo.complete? %>
+          <del><%= todo.title %></del>
+        <% else %>
+          <%= todo.title %>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="editable hide">
+      <%= simple_form_for [todo.project, todo], remote: true  do |f| %>
+        <%= f.input :title, label: false %>
+        <%= f.button :submit, "done" %>
+      <% end %>
+    </div>
+  </td>
+  <td>
+    <div class="static">
+      <%= link_to 'edit', '#', "data-action" => "edit-todo" %>
+    </div>
+  </td>
+  <td>
+    <div class="static"> 
+      <%= link_to project_todo_path(todo.project, todo), method: :delete, remote: true, data: { confirm: 'Are you sure?' }  do %>
+        <i class="icon-remove-circle"></i>
+      <% end %>
+      |
+      <% if todo.complete? %>
+        <%= link_to project_todo_path(todo.project, todo, todo: {complete: false}), method: :put, remote: true do %>
+          <i class="icon-repeat"></i>
+        <% end %>
+      <% else %>
+        <%= link_to project_todo_path(todo.project, todo, todo: {complete: true}), method: :put, remote: true do %>
+          <i class="icon-ok"></i>
+        <% end %>
+      <% end %>
+    </div>
+  </td>
+</tr>

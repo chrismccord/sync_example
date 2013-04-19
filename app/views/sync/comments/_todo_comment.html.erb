@@ -1,0 +1,15 @@
+<div class="media">
+  <div class="media-body">
+    <b><%= comment.user.name %></b> –
+    <%= h(comment.to_s).gsub("\n", "<br/>").html_safe %>
+    
+    <div class="pull-right">
+      <em class="light"><%= comment.created_at.strftime('%m/%d/%y') %></em>
+      
+      <%= link_to project_todo_comment_path(comment.project, comment.todo, comment), method: :delete, remote: true, data: { confirm: 'Are you sure?' }  do %>
+        <i class="icon-remove-circle"></i>
+      <% end %>
+    </div>
+  </div>
+  <hr/>
+</div>

@@ -1,0 +1,9 @@
+/.bundle
+.DS_Store
+/db/*.sqlite3
+config/database.yml
+config/sync.yml
+.powrc
+.rvmrc
+/tmp
+/log/*.log

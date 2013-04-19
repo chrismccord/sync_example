@@ -1,0 +1,47 @@
+table { 
+  td.name {
+    min-width: 200px;
+  }
+  td.title {
+    min-width: 340px;
+  }
+}
+
+.light { color: #bbbbbb; }
+
+.add-new-todo {
+  input[type="text"] {
+    width: 90%;
+  }
+
+  input[type="submit"] {
+  }
+}
+
+.todo-row {
+  form {
+    margin: 0;
+    padding: 0;
+    height: 20px;
+    position: relative;
+    top: -5px;
+    left: -5px;
+  }
+  .input {
+    display: inline-block;
+    vertical-align: top;
+    width: 80%;
+    margin-right: 1em;
+    input[type="text"] {
+      width: 100%
+    }
+  }
+  &.edit {
+    .static {
+      display: none;
+    }
+    .editable {
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,28 @@
+<h1>Users</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= sync partial: 'user_list_row', collection: @users, as: :user %>
+    <%= sync_new partial: 'user_list_row', resource: User.new %>
+  </tbody>
+</table>
+
+<br />
+<%= simple_form_for User.new, remote: true do |f| %>
+  <div class="form-inputs">
+    <%= f.input :name %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+
+<%= link_to 'New User', new_user_path %>

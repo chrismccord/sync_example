@@ -1,0 +1,6 @@
+<h1>Editing todo</h1>
+
+<%= render 'form', locals: {todo: @todo} %>
+
+<%= link_to 'Show', [@todo.project, @todo] %> |
+<%= link_to 'Back', project_path(@todo.project) %>

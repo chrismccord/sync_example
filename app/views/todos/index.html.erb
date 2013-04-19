@@ -1,0 +1,22 @@
+<h1>Listing todos</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @todos.each do |todo| %>
+      <%= sync partial: 'list_row', resource: todo %>
+    <% end %>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to 'New Todo', new_todo_path %>

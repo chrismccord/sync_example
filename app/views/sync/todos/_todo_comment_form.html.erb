@@ -1,0 +1,19 @@
+<div class="row-fluid">
+  <div class="span12">
+    <%= simple_form_for [todo.project, todo, @comment || todo.comments.new], remote: true do |f| %>
+      <% if f.object.errors.any? %>
+        <% f.object.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      <% end %>
+      <div class="row-fluid">
+        <%= f.text_area :message, rows: 5, class: 'span12' %>
+      </div>
+      <div class="row-fluid">    
+        <div class="span12 text-left">
+          <%= f.button :submit, "Add this comment" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

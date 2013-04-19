@@ -1,0 +1,14 @@
+<ul class="breadcrumb">
+  <li>
+    <%= link_to 'Dashboard', root_path %>
+    <span class="divider">/</span>
+  </li>
+  <li>
+    <%= link_to todo.project.name, todo.project %>
+    <span class="divider">/</span>
+  </li>
+  <li class="active">
+    <%= todo.title %>
+  </li>
+
+</ul>

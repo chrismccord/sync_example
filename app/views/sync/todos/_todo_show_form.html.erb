@@ -1,0 +1,12 @@
+<div class="row-fluid">
+  <div class="span12">
+    <%= simple_form_for [todo.project, todo], remote: true do |f| %>
+      <%= f.error_notification %>
+      <%= f.text_field :title, label: false, class: 'span10 pull-left' %>
+      <div class="span1 pull-right text-right">
+        <%= f.button :submit, "Save" %>
+      </div>
+    <% end %>
+    <hr/>
+  </div>
+</div>
