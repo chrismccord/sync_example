@@ -1,6 +1,6 @@
 # [Sync](http://github.com/chrismccord/sync) Example Rails Application
 
-This Rails 4 application includes a basic todo application with projects, todos, users, and comments for use in 
+This repo includes a basic Rails todo application with projects, todos, users, and comments for use in 
 demonstrating the integration of [Sync](http://github.com/chrismccord/sync), a gem for making your Rails applications 
  realtime.
  
