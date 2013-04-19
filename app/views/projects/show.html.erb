@@ -3,8 +3,6 @@
 
 <%= sync partial: 'project_header', resource: @project %>
 
-<%= link_to 'Project Settings', edit_project_path(@project) %>
-
 <table class="table" data-name="todos-list">
   <tbody>
     <% @project.todos.ordered.each do |todo| %>

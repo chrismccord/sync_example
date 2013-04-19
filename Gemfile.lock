@@ -63,7 +63,7 @@ GIT
 PATH
   remote: ~/Workspace/gems/sync
   specs:
-    sync (0.0.2)
+    sync (0.0.3)
       faye
       thin
 

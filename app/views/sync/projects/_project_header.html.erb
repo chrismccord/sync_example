@@ -1,3 +1,6 @@
-<h2>
+<h1>
   <%= project.name %>, <%= pluralize(project.todos_count, "todo") %>
-</h2>
+  <small class="tiny pull-right">
+    <%= link_to 'Project Settings', edit_project_path(@project) %>
+  </small>
+</h1>

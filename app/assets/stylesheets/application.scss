@@ -1,0 +1,82 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+$max-content-width: 1000px;
+$body-bg: #f4f0e5;
+$nav-bg: #303030;
+$white: #f9f9f9;
+
+@mixin box-shadow($top, $right, $bottom, $color) {
+  -webkit-box-shadow: $top $right $bottom $color;
+  -moz-box-shadow:    $top $right $bottom $color;
+  box-shadow:         $top $right $bottom $color;
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+body {
+  background: $body-bg;
+}
+
+a {
+  &:hover {
+    color: inherit;
+    background: none;
+  }
+}
+h1 {
+  font-size: 24px;
+  small {
+    &.tiny {
+      font-size: 12px;
+      line-height: 50px;
+    }
+  }
+}
+h2 {
+  font-size: 20px;
+}
+
+.container-fluid {
+  max-width: $max-content-width;
+  margin: 0 auto;
+}
+.breadcrumb {
+  background: none;
+  li {
+    font-size: 14px;
+  }
+}
+
+.navbar-fluid-top {
+  .navbar-inner {
+    @include border-radius(0);
+    background: $nav-bg;
+    a {
+      color: $white!important;
+      text-shadow: none!important;
+    }
+  }
+}
+
+#content {
+  background: $white;
+  padding: 2em;
+  @include box-shadow(0px, 0px, 5px, rgba(50, 50, 50, 0.3));
+  @include border-radius(3px)
+}

@@ -26,10 +26,10 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">Sync</a>
+          <a class="brand" href="/">Sync</a>
           <div class="container-fluid nav-collapse">
             <ul class="nav">
-              <li><%= link_to "Users", users_path  %></li>
+              <li><%= link_to "Projects", projects_path  %></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -39,6 +39,11 @@
     <div class="container-fluid">
       <div class="row-fluid">
         <div class="span12">
+          <%= yield :breadcrumbs %>
+        </div>
+      </div>
+      <div class="row-fluid">
+        <div id="content" class="span12">
           <%= bootstrap_flash %>
           <%= yield %>
         </div>

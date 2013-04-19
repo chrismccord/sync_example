@@ -1,9 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<%= sync partial: 'todo_breadcrumbs', resource: @todo %>
+<%= content_for :breadcrumbs do %>
+  <%= sync partial: 'todo_breadcrumbs', resource: @todo %>
+<% end %>
 
 <div class="row-fluid">
-  <div class="span12 well">
+  <div class="span12">
     <%= sync partial: 'todo_show_form', resource: @todo %>
     <div class="row-fluid">
       <div class="span12">
