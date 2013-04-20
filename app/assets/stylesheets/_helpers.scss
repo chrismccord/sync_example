@@ -1,0 +1,23 @@
+$max-content-width: 1000px;
+$body-bg: #f4f0e5;
+$nav-bg: #303030;
+$white: #f9f9f9;
+
+@mixin box-shadow($top, $right, $bottom, $color) {
+  -webkit-box-shadow: $top $right $bottom $color;
+  -moz-box-shadow:    $top $right $bottom $color;
+  box-shadow:         $top $right $bottom $color;
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin opacity($decimal) {
+  $decimalx10: ($decimal * 10);
+  -moz-opacity: $decimal;
+  opacity: $decimal;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=$decimalx10)";
+}

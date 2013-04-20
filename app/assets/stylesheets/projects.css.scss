@@ -1,10 +1,18 @@
-table { 
+@import "helpers";
+
+table {
+  tr:hover {
+    td.actions {
+      @include opacity(1);
+    }
+  }
   td.name {
     min-width: 200px;
   }
   td.title {
   }
   td.actions {
+    @include opacity(0.25);
     min-width: 140px;
   }
   td {
