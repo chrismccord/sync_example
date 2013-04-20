@@ -7,16 +7,18 @@
       </small>
     </h1>
 
-    <h5>Recent Updates</h5>
-    <% project.todos.recently_updated.limit(3).each do |todo| %>
-      <p>
-        <%= link_to truncate(todo.title, length: 50), [project, todo] %> 
-        <span class="pull-right">
-          <em class="light">
-            <%= distance_of_time_in_words(todo.updated_at, Time.now) %> ago
-          </em>
-        </span>
-      </p>
+    <% if project.comments.recently_updated.any? %>
+      <h5>Recent Discussions</h5>
+      <% project.comments.recently_updated.limit(3).each do |comment| %>
+        <p>
+          <%= link_to truncate(comment.message, length: 50), [project, comment.todo] %> 
+          <span class="pull-right">
+            <em class="light">
+              <%= distance_of_time_in_words(comment.updated_at, Time.now) %> ago
+            </em>
+          </span>
+        </p>
+      <% end %>
     <% end %>
     <br/>
   </div>

@@ -40,7 +40,7 @@ class CommentsController < ApplicationController
       if @comment.save
         sync_new @comment, scope: @todo
         @comment = nil
-        sync_update @todo
+        sync_update [@todo, @todo.project]
         format.html { redirect_to [@project, @todo], notice: 'Comment was successfully created.' }
         format.js { head :no_content }
       else
@@ -69,6 +69,7 @@ class CommentsController < ApplicationController
     @comment = @todo.comments.find(params[:id])
     @comment.destroy
     sync_destroy @comment
+    sync_update @todo.project
     respond_to do |format|
       format.html { redirect_to [@project, @todo] }
       format.js { head :no_content }
