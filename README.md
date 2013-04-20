@@ -20,3 +20,5 @@ demonstrating the integration of [Sync](http://github.com/chrismccord/sync), a g
   - If using Faye, run the Faye server: `rackup sync.ru -E production`
 
 
+## Default seed user
+You can log in and explore the app by visiting the root url and logging in with `user@example.com` and `password`
