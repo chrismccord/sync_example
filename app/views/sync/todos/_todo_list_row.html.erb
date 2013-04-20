@@ -16,13 +16,12 @@
       <% end %>
     </div>
   </td>
-  <td>
-    <div class="static">
-      <%= link_to 'edit', '#', "data-action" => "edit-todo" %>
-    </div>
-  </td>
-  <td>
+  <td class="actions">
     <div class="static"> 
+      <%= link_to '#', "data-action" => "edit-todo" do %>
+        <i class="icon-edit"> edit</i>
+      <% end %>
+      |
       <%= link_to project_todo_path(todo.project, todo), method: :delete, remote: true, data: { confirm: 'Are you sure?' }  do %>
         <i class="icon-remove-circle"></i>
       <% end %>

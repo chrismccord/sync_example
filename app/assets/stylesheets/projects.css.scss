@@ -3,7 +3,16 @@ table {
     min-width: 200px;
   }
   td.title {
-    min-width: 340px;
+  }
+  td.actions {
+    min-width: 140px;
+  }
+  td {
+    i {
+      font-size: 16px;
+      margin-right: 0.2em;
+      margin-left: 0.2em
+    }
   }
 }
 

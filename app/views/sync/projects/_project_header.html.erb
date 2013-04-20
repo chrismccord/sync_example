@@ -1,6 +1,23 @@
-<h1>
-  <%= project.name %>, <%= pluralize(project.todos_count, "todo") %>
-  <small class="tiny pull-right">
-    <%= link_to 'Project Settings', edit_project_path(@project) %>
-  </small>
-</h1>
+<div class="row-fluid">
+  <div class="span12">
+    <h1>
+      <%= project.name %>, <%= project.completed_todo_count %> completed of <%= pluralize(project.todos_count, "todo") %>
+      <small class="tiny pull-right">
+        <%= link_to 'Project Settings', edit_project_path(@project) %>
+      </small>
+    </h1>
+
+    <h5>Recent Updates</h5>
+    <% project.todos.recently_updated.limit(3).each do |todo| %>
+      <p>
+        <%= link_to truncate(todo.title, length: 50), [project, todo] %> 
+        <span class="pull-right">
+          <em class="light">
+            <%= distance_of_time_in_words(todo.updated_at, Time.now) %> ago
+          </em>
+        </span>
+      </p>
+    <% end %>
+    <br/>
+  </div>
+</div>

@@ -56,7 +56,7 @@ class TodosController < ApplicationController
 
     respond_to do |format|
       if @todo.update_attributes(todo_params)
-        sync_update @todo
+        sync_update [@todo, @project]
         format.html { redirect_to [@todo.project, @todo], notice: 'Todo was successfully updated.' }
         format.js { head :no_content }
       else
