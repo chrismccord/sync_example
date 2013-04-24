@@ -6,7 +6,7 @@ gem 'unicorn'
 gem 'pg'
 gem 'pusher'
 gem 'em-http-request'
-gem 'sync', :path => '~/Workspace/gems/sync'
+gem 'sync'
 gem 'devise', :git => 'git://github.com/plataformatec/devise.git', :branch => 'rails4'
 
 group :development do
