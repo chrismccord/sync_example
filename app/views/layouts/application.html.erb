@@ -14,7 +14,7 @@
 
     <%= stylesheet_link_tag "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
-    <%= javascript_include_tag Sync.config[:javascript_url] %>
+    <%= javascript_include_tag Sync.adapter_javascript_url %>
   </head>
   <body>
 
