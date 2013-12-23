@@ -11,8 +11,7 @@
     </div>
     <div class="editable hide">
     <%= simple_form_for [todo.project, todo], html: {class: "form-inline"}, remote: true do |f| %>
-        <%= f.input_field :title %>
-        <%= f.button :submit, "done" %>
+        <%= f.input_field :title, class: "fill" %>
       <% end %>
     </div>
   </td>

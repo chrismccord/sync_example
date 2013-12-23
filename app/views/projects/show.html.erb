@@ -1,6 +1,10 @@
 <%= sync partial: 'project_header', resource: @project %>
 
 <table class="table" data-name="todos-list">
+  <colgroup>
+    <col class="fill"/>
+    <col/>
+  </colgroup>
   <tbody>
     <% @project.todos.ordered.each do |todo| %>
       <%= sync partial: 'todo_list_row', resource: todo %>
