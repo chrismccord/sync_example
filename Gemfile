@@ -7,6 +7,7 @@ gem 'sqlite3'
 gem 'pusher'
 gem 'faye'
 gem 'thin'
+gem 'oj'
 gem 'sync'
 gem 'devise', '~> 3.0.4'
 
@@ -16,11 +17,10 @@ group :development do
   gem 'quiet_assets'
 end
 
-group :assets do
-  gem 'sass-rails', '~> 4.0.0'
-  gem 'coffee-rails', '~> 4.0.0'
-  gem 'uglifier', '>= 1.0.3'
-end
+gem 'sass-rails', '~> 4.0.0'
+gem 'coffee-rails', '~> 4.0.0'
+gem 'uglifier', '>= 1.0.3'
+gem 'turbolinks'
 
 gem 'jquery-rails'
 gem 'twitter-bootstrap-rails'
