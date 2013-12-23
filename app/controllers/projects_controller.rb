@@ -49,10 +49,10 @@ class ProjectsController < ApplicationController
         sync_new @project
 
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
-        format.js { render json: @project, status: :created, location: @project }
+        format.js { redirect_via_turbolinks_to @project, notice: 'Project was successfully created.' }
       else
         format.html { render action: "new" }
-        format.js { render json: @project.errors, status: :unprocessable_entity }
+        format.js { render action: "new" }
       end
     end
   end
@@ -64,10 +64,10 @@ class ProjectsController < ApplicationController
       if @project.update_attributes(project_params)
         sync @project, :update
         format.html { redirect_to @project, notice: 'Project was successfully updated.' }
-        format.js { head :no_content }
+        format.js { redirect_via_turbolinks_to @project, notice: 'Project was successfully updated.' }
       else
         format.html { render action: "edit" }
-        format.js { render json: @project.errors, status: :unprocessable_entity }
+        format.js { render action: "edit" }
       end
     end
   end
