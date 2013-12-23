@@ -1,5 +1,5 @@
 class Todo < ActiveRecord::Base
-  belongs_to :project, counter_cache: true
+  belongs_to :project, counter_cache: true, touch: true
   has_many :comments, dependent: :destroy
 
   scope :ordered,   -> { order("created_at ASC") }
