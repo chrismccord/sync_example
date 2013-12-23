@@ -43,10 +43,10 @@ class TodosController < ApplicationController
         sync_update @todo.project.reload
 
         format.html { redirect_to [@todo.project, @todo], notice: 'Todo was successfully created.' }
-        format.js { render json: @todo, status: :created, location: [@todo.project, @todo] }
+        format.js { head :no_content }
       else
         format.html { render action: "new" }
-        format.js { render json: @todo.errors, status: :unprocessable_entity }
+        format.js { render "errors" }
       end
     end
   end
@@ -61,7 +61,7 @@ class TodosController < ApplicationController
         format.js { head :no_content }
       else
         format.html { render action: "edit" }
-        format.js { render json: @todo.errors, status: :unprocessable_entity }
+        format.js { render "errors" }
       end
     end
 
