@@ -4,10 +4,10 @@ SyncExample::Application.routes.draw do
 
   devise_scope :user do 
     authenticated :user do
-      root to: 'projects#index'
+      root to: 'projects#index', as: :authenticated_root
     end
     unauthenticated :user do
-      root :to => 'devise/sessions#new'
+      root :to => 'devise/sessions#new', as: :unauthenticated_root
     end
   end
 
