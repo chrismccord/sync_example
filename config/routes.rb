@@ -7,7 +7,7 @@ SyncExample::Application.routes.draw do
       root to: 'projects#index'
     end
     unauthenticated :user do
-      root :to => 'devise/sessions#new'
+      root :to => 'devise/sessions#new', as: :unauthenticated_root
     end
   end
 

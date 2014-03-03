@@ -1,0 +1,6 @@
+<tr>
+  <td class="name"><%= link_to project.name, project %></td>
+  <td><%= project.todos_count %> todos</td>
+  <td><%= link_to 'Edit', edit_project_path(project) %></td>
+  <td><%= link_to 'Delete', project, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %></td>
+</tr>

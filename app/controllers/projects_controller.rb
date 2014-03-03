@@ -2,21 +2,28 @@ class ProjectsController < ApplicationController
 
   before_filter :authenticate_user!
 
+  etag { current_user }
+  etag { flash }
+
   def index
     @projects = current_user.projects
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @projects }
+    if stale? @projects
+      respond_to do |format|
+        format.html # index.html.erb
+        format.js { render json: @projects }
+      end
     end
   end
 
   def show
     @project = current_user.projects.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @project }
+    if stale? @project
+      respond_to do |format|
+        format.html # show.html.erb
+        format.js { render json: @project }
+      end
     end
   end
 
@@ -25,12 +32,13 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @project }
+      format.js { render json: @project }
     end
   end
 
   def edit
     @project = current_user.projects.find(params[:id])
+    fresh_when @project
   end
 
   def create
@@ -38,11 +46,13 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.save
+        sync_new @project
+
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
-        format.json { render json: @project, status: :created, location: @project }
+        format.js { redirect_via_turbolinks_to @project, notice: 'Project was successfully created.' }
       else
         format.html { render action: "new" }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
+        format.js { render action: "new" }
       end
     end
   end
@@ -54,10 +64,10 @@ class ProjectsController < ApplicationController
       if @project.update_attributes(project_params)
         sync @project, :update
         format.html { redirect_to @project, notice: 'Project was successfully updated.' }
-        format.json { head :no_content }
+        format.js { redirect_via_turbolinks_to @project, notice: 'Project was successfully updated.' }
       else
         format.html { render action: "edit" }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
+        format.js { render action: "edit" }
       end
     end
   end
@@ -65,10 +75,11 @@ class ProjectsController < ApplicationController
   def destroy
     @project = current_user.projects.find(params[:id])
     @project.destroy
+    sync_destroy @project
 
     respond_to do |format|
       format.html { redirect_to projects_url }
-      format.json { head :no_content }
+      format.js { head :no_content }
     end
   end
 
