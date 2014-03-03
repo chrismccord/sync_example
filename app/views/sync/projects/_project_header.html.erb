@@ -3,7 +3,7 @@
     <h1>
       <%= project.name %>, <%= project.completed_todo_count %> completed of <%= pluralize(project.todos_count, "todo") %>
       <small class="tiny pull-right">
-        <%= link_to 'Project Settings', edit_project_path(@project) %>
+        <%= link_to 'Project Settings', edit_project_path(project) %>
       </small>
     </h1>
 
