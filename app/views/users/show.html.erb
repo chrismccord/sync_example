@@ -1,4 +1,19 @@
-<%= sync partial: 'show', resource: @user %>
+<%#= sync partial: 'show', resource: @user %>
+
+<%= sync partial: 'user_header', resource: @user %>
+
+<table class="table" data-name="todos-list">
+  <colgroup>
+    <col class="fill"/>
+    <col/>
+  </colgroup>
+  <tbody>
+    <%= sync partial: 'todo_list_row', collection: Todo.by_user(@user) %>
+    <%= sync_new partial: 'todo_list_row', resource: Todo.new, scope: Todo.by_user(@user) %>
+  </tbody>
+</table>
+
+<br />
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
