@@ -24,7 +24,9 @@
           <a class="brand" href="/">Sync</a>
           <div class="container-fluid">
             <ul class="nav">
-              <li><%= link_to "Projects", projects_path  %></li>
+              <% User.all.each do |user| %>
+                <li><%= link_to user.name, user %></li>
+              <% end %>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
