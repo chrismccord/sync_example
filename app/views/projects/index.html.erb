@@ -2,8 +2,8 @@
 
 <table class="table">
   <tbody>
-    <%= sync partial: 'project_list_row', collection: @projects %>
-    <%= sync_new partial: 'project_list_row', resource: Project.new %>
+    <%= sync partial: 'project_list_row', collection: Project.by_user(current_user) %>
+    <%= sync_new partial: 'project_list_row', resource: Project.new, scope: Project.by_user(current_user) %>
   </tbody>
 </table>
 

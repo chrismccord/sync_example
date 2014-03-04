@@ -6,10 +6,8 @@
     <col/>
   </colgroup>
   <tbody>
-    <% @project.todos.ordered.each do |todo| %>
-      <%= sync partial: 'todo_list_row', resource: todo %>
-    <% end %>
-    <%= sync_new partial: 'todo_list_row', resource: Todo.new, scope: @project %>
+    <%= sync partial: 'todo_list_row', collection: Todo.by_project(@project) %>
+    <%= sync_new partial: 'todo_list_row', resource: Todo.new, scope: Todo.by_project(@project) %>
   </tbody>
 </table>
 
