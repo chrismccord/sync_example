@@ -1,6 +1,35 @@
-// Place all the styles related to the todos controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
 .fill {
   width: 100%;
+}
+
+.todo-user {
+  color: #ccc;
+}
+
+.todo-row {
+  form {
+    margin: 0;
+    padding: 0;
+    min-height: 20px;
+    position: relative;
+    top: -5px;
+    left: -5px;
+  }
+  .input {
+    display: inline-block;
+    vertical-align: top;
+    width: 80%;
+    margin-right: 1em;
+    input[type="text"] {
+      width: 100%
+    }
+  }
+  &.edit {
+    .static {
+      display: none;
+    }
+    .editable {
+      display: block;
+    }
+  }
 }
