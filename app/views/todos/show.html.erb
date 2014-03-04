@@ -8,7 +8,7 @@
     <div class="row-fluid">
       <div class="span12">
         <% @todo.comments.ordered.each do |comment| %>          
-          <%= sync partial: 'todo_comment', resource: comment %>
+          <%= sync partial: 'todo_comment', resource: comment, scope: @todo %>
           <br/>
         <% end %>
         <%= sync_new partial: 'todo_comment', resource: Comment.new, scope: @todo %>

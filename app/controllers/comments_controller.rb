@@ -68,7 +68,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment = @todo.comments.find(params[:id])
     @comment.destroy
-    sync_destroy @comment
+    sync_destroy @comment, scope: @comment.todo
     sync_update @todo.project
     respond_to do |format|
       format.html { redirect_to [@project, @todo] }
