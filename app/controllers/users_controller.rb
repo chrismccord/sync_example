@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  enable_sync
+  
   def index
     @users = User.order('created_at ASC')
 
