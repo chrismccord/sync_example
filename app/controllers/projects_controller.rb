@@ -4,6 +4,8 @@ class ProjectsController < ApplicationController
 
   etag { current_user }
   etag { flash }
+  
+  enable_sync
 
   def index
     @projects = current_user.projects
@@ -46,8 +48,6 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.save
-        sync_new @project
-
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
         format.js { redirect_via_turbolinks_to @project, notice: 'Project was successfully created.' }
       else
@@ -62,7 +62,6 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.update_attributes(project_params)
-        sync @project, :update
         format.html { redirect_to @project, notice: 'Project was successfully updated.' }
         format.js { redirect_via_turbolinks_to @project, notice: 'Project was successfully updated.' }
       else
@@ -75,7 +74,6 @@ class ProjectsController < ApplicationController
   def destroy
     @project = current_user.projects.find(params[:id])
     @project.destroy
-    sync_destroy @project
 
     respond_to do |format|
       format.html { redirect_to projects_url }
