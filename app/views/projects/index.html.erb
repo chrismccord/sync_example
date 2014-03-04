@@ -7,6 +7,20 @@
   </tbody>
 </table>
 
-<br />
-
 <%= link_to 'New Project', new_project_path %>
+
+<hr />
+
+<h1>Your Todos</h1>
+
+<table class="table" data-name="todos-list">
+  <colgroup>
+    <col class="fill"/>
+    <col/>
+  </colgroup>
+  <tbody>
+    <%= sync partial: 'todo_list_row', collection: Todo.by_user(current_user) %>
+    <%= sync_new partial: 'todo_list_row', resource: Todo.new, scope: Todo.by_user(current_user) %>
+  </tbody>
+</table>
+
