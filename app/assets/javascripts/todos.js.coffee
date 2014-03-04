@@ -10,7 +10,7 @@
 
 
   toggleEditRow: ($parentRow) ->
-    $parentRow.addClass("edit")
+    $parentRow.toggleClass("edit")
     $parentRow.find("input[type=text]").focus()
 
 
