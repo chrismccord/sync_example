@@ -83,7 +83,7 @@ class TodosController < ApplicationController
   private
 
   def todo_params
-    params.require(:todo).permit :title, :description, :complete
+    params.require(:todo).permit :title, :description, :complete, :user_id
   end
 
   def find_project
