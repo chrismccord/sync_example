@@ -10,7 +10,6 @@ demonstrating the integration of [Sync](http://github.com/chrismccord/sync), a g
     $ cd sync_example
     $ bundle
     $ rails g sync:install
-    $ touch config/database.yml # Don't forget to set up your dbs before proceeding
     $ rake db:create
     $ rake db:migrate
     $ rake db:seed

@@ -8,10 +8,18 @@
           <%= todo.title %>
         <% end %>
       <% end %>
+      <% if todo.user %>
+        <span class="todo-user">(<%= todo.user.name %>)</span>
+      <% end %>
     </div>
     <div class="editable hide">
     <%= simple_form_for [todo.project, todo], html: {class: "form-inline"}, remote: true do |f| %>
-        <%= f.input_field :title, class: "fill" %>
+        <p><%= f.input_field :title, class: "fill" %></p>
+        <p><%= f.collection_select :user_id, User.all, :id, :name, include_blank: true %></p>
+        <p>
+          <%= f.submit 'save', class: "btn" %>
+          <%= link_to 'cancel', "#", "data-action" => "edit-todo", class: "btn btn-link" %>
+        </p>
       <% end %>
     </div>
   </td>
