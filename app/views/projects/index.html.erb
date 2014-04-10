@@ -3,7 +3,6 @@
 <table class="table">
   <tbody>
     <%= sync partial: 'project_list_row', collection: Project.by_user(current_user) %>
-    <%= sync_new partial: 'project_list_row', resource: Project.new, scope: Project.by_user(current_user) %>
   </tbody>
 </table>
 
@@ -20,7 +19,6 @@
   </colgroup>
   <tbody>
     <%= sync partial: 'todo_list_row', collection: Todo.by_user(current_user) %>
-    <%= sync_new partial: 'todo_list_row', resource: Todo.new, scope: Todo.by_user(current_user) %>
   </tbody>
 </table>
 
