@@ -137,7 +137,7 @@ GEM
       activesupport (>= 3.0)
       sprockets (~> 2.8)
     sqlite3 (1.3.8)
-    sync (0.2.6)
+    sync (0.3.0)
       em-http-request
     thin (1.6.1)
       daemons (>= 1.0.9)
@@ -186,7 +186,7 @@ DEPENDENCIES
   sass-rails (~> 4.0.0)
   simple_form (~> 3.0.1)
   sqlite3
-  sync
+  sync (~> 0.3.0)
   thin
   turbolinks
   twitter-bootstrap-rails

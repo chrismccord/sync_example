@@ -8,7 +8,7 @@ gem 'pusher'
 gem 'faye'
 gem 'thin'
 gem 'oj'
-gem 'sync'
+gem 'sync', '~> 0.3.0'
 gem 'devise', '~> 3.0.4'
 
 group :development do
