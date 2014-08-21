@@ -5,9 +5,7 @@
     <col class="fill"/>
     <col/>
   </colgroup>
-  <tbody>
-    <%= sync partial: 'todo_list_row', collection: Todo.by_project(@project) %>
-  </tbody>
+  <%= sync partial: 'todo_list_row', collection: Todo.by_project(@project), container: { tag: :tbody } %>
 </table>
 
 <br />
