@@ -6,7 +6,7 @@ class Todo < ActiveRecord::Base
 
   validates :title, presence: true
 
-  scope :ordered,   -> { order("created_at ASC") }
+  scope :ordered,   -> { order(title: :asc, created_at: :desc) }
   scope :completed, -> { where(complete: true ) }
   scope :recently_updated, -> { order("updated_at DESC")}
 

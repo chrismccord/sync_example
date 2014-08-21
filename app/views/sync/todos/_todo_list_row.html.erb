@@ -1,4 +1,4 @@
-<tr data-name="todo-row" class="todo-row">
+<%= sync_tag :tr, class: "todo-row" do %>
   <td class="title">
     <div class="static">
       <%= link_to [todo.project, todo] do %>
@@ -44,4 +44,4 @@
       <% end %>
     </div>
   </td>
-</tr>
+<% end %>

@@ -7,11 +7,7 @@
     <%= sync partial: 'todo_show_form', resource: @todo %>
     <div class="row-fluid">
       <div class="span12">
-        <% @todo.comments.ordered.each do |comment| %>          
-          <%= sync partial: 'todo_comment', resource: comment, scope: @todo %>
-          <br/>
-        <% end %>
-        <%= sync_new partial: 'todo_comment', resource: Comment.new, scope: @todo %>
+        <%= sync partial: 'todo_comment', resources: @todo.comments.ordered, scope: @todo, new: Comment.new %>
       </div>
     </div>
     <br/>

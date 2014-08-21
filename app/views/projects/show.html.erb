@@ -5,10 +5,7 @@
     <col class="fill"/>
     <col/>
   </colgroup>
-  <tbody>
-    <%= sync partial: 'todo_list_row', collection: Todo.by_project(@project) %>
-    <%= sync_new partial: 'todo_list_row', resource: Todo.new, scope: Todo.by_project(@project) %>
-  </tbody>
+  <%= sync partial: 'todo_list_row', collection: Todo.by_project(@project), container: { tag: :tbody } %>
 </table>
 
 <br />

@@ -6,7 +6,7 @@
     $("[data-name=new-todo-form]").on 'ajax:complete', -> @reset()
     $(document).on "click", "[data-action=edit-todo]", (e) =>
       e.preventDefault()
-      @toggleEditRow $(e.target).parents("[data-name=todo-row]")
+      @toggleEditRow $(e.target).parents(".todo-row")
 
 
   toggleEditRow: ($parentRow) ->

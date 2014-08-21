@@ -1,4 +1,4 @@
 <%= simple_form_for [todo.project, todo], data: {name: "new-todo-form"}, html: {class: "form-inline"}, remote: true do |f| %>
   <%= f.error_notification %>
-  <%= f.input_field :title, class: "fill", placeholder: "Enter New Todo Item…" %>
+  <%= f.input_field :title, class: "fill", placeholder: "Enter New Todo Item…", autocomplete: "off" %>
 <% end %>
